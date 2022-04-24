@@ -1,6 +1,5 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020 The PixelExperience Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -19,9 +18,13 @@ $(call inherit-product, vendor/xiaomi/violet/violet-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-pe
+    $(LOCAL_PATH)/overlay-statix
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Qcom Hardware
+PRODUCT_BOARD_PLATFORM := sm6150
+PRODUCT_USES_QCOM_HARDWARE := true
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
@@ -143,7 +146,6 @@ PRODUCT_PACKAGES += \
     libdng_sdk.vendor \
     libgui_vendor \
     libxml2 \
-    CameraGo \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 PRODUCT_COPY_FILES += \
